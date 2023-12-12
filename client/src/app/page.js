@@ -1,4 +1,4 @@
-import Userdetail from '@/component/Userdetail'
+import Userdetail from '@/app/component/Userdetail'
 
 export default function Home() {
   return (

@@ -27,3 +27,15 @@ h1{
     background-color: #212129;
     color: white;
 }
+h2{
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    margin: 10px;
+}
+.videoCallPage{
+    text-align: center;
+}
+.videocallbtn{
+    margin-bottom: 15px;
+}
