@@ -21,6 +21,12 @@ io.on("connection",(socket)=>{
         socket.join(roomId);
         io.in(socket.id).emit("room:join",data);
     });
+    socket.on("user:call",({to,offer})=>{
+        io.in(to).emit('incomming:call',{from:socket.id,offer})
+    });
+    socket.on("call;accepted",({to,ans})=>{
+        io.in(to).emit('call:accepted',{from:socket.id,ans})
+    });
 
 });
 console.log("port started at 8000");
