@@ -54,8 +54,8 @@ export default function page() {
     }
   },[handleNegoNeeded]);
   useEffect(()=>{
-    peer.peer.addEventListener('track',async(ev)=>{
-      const remoteStream = ev.streams;
+    peer.peer.addEventListener('track',async(event)=>{
+      const remoteStream = event.streams;
       setRemoteStream(remoteStream[0]);
     });
   });
@@ -66,7 +66,6 @@ export default function page() {
     socket.on('peer:nego:needed',handleNegoNeedIncomming);
     socket.on('peer:nego:final',handleNegoNeedFinal);
 
-    
     return ()=>{
       socket.off('user:joined',handleUserJoined);
       socket.off('incomming:call',handleIncommingCall);   
@@ -74,7 +73,7 @@ export default function page() {
       socket.off('peer:nego:needed',handleNegoNeedIncomming);
       socket.off('peer:nego:final',handleNegoNeedFinal);
     }
-  },[socket,handleUserJoined,handleIncommingCall]);
+  },[socket,handleUserJoined,handleIncommingCall,handleCallAccepted,handleNegoNeedIncomming,handleNegoNeedFinal]);
   return (
     <div className='videoCallPage'>
       <h1>Hello this is the trial video call!!</h1>
